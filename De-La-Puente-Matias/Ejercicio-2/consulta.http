@@ -1,0 +1,49 @@
+@url = http://localhost:3000
+
+### cargar alumno
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Juan Perez",
+  "notas": [6, 5, 7]
+}
+
+### cargar alumno repetido
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Juan Perez",
+  "notas": [8, 9, 10]
+}
+
+### cargar otro alumno
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Kevin Llabot",
+  "notas": [8, 9, 10]
+} 
+
+### cargar otro alumno
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Maria Gomez",
+  "notas": [5, 5, 5]
+} 
+
+### modficar alumno
+PUT {{url}}/alumnos/1
+Content-Type: application/json
+
+{
+  "nombre": "Enrique Suares",
+  "notas": [9, 9, 10]
+}
+
+### Mostrar los alumnos
+GET {{url}}/alumnos 
