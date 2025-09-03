@@ -1,8 +1,3 @@
-//Realizar una API con ExpressJS que permita calcular perímetros y superficies
-//de rectángulos. Guardar los cálculos en un arreglo interno. En el momento de
-//consultar por los cálculos indicar también si se trata de un rectángulo o
-//cuadrado, no guardar este dato en el arreglo interno.
-
 import express from 'express';
 
 
@@ -11,33 +6,30 @@ const port = 3000;
 
 app.use(express.json());
 
-let calculos = [];
-let id = 1;
+let tareas = [];
 
-app.post('/calcular', (req, res) => {
-    const  {ancho, alto} = req.body; 
-    let numAncho = parseFloat(ancho);
-    let numAlto = parseFloat(alto);
-
-    if (isNaN(numAncho) || isNaN(numAlto) || numAncho <= 0 || numAlto <= 0) {
-        return res.status(400).json({ error: 'Ancho y alto deben ser números positivos.' });
+app.get('/tareas', (req, res) => {
+    const { completada } = req.query;
+    if (completada === 'true') {
+        return res.json(tareas.filter(tarea => tarea.completada));
+    } else if (completada === 'false') {
+        return res.json(tareas.filter(tarea => !tarea.completada));
     }
-    const perimetro = 2 * (numAncho + numAlto);
-    const superficie = numAncho * numAlto;
-    const calculo = { id: id++, ancho: numAncho, alto: numAlto, perimetro, superficie };
-    calculos.push(calculo);
-    res.json(calculo);
-} );
+
+    res.json(tareas);
+});
+
+app.post('/tareas', (req, res) => {
+    const { nombre, completada } = req.body;
+    if (tareas.some(tarea => tarea.nombre === nombre)) {
+        return res.status(400).json({ error: 'La tarea ya existe' });
+    }
+    const nuevaTarea = { nombre, completada: !!completada };
+    tareas.push(nuevaTarea);
+    res.status(201).json(nuevaTarea);
+});
 
 
-app.get('/calculos', (req, res) => {
-    calculos = calculos.map(calculo => {
-        const tipo = (calculo.ancho === calculo.alto) ? 'cuadrado' : 'rectángulo';
-        return { ...calculo, tipo };
-    });
-
-    res.json(calculos);
-});     
 
 
 app.listen(port, () => {

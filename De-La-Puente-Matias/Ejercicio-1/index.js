@@ -31,6 +31,7 @@ app.get('/calculos', (req, res) => {
         return { ...calculo, tipo };
     });
 
+
     res.json(calculos);
 });     
 
