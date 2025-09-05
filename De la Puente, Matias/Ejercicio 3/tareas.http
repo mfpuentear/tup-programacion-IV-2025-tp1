@@ -1,0 +1,104 @@
+@url=http://localhost:3003
+
+### Health
+GET {{url}}/health
+
+### Crear tarea
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Comprar comida"
+}
+
+### Crear tarea completada
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Pagar la universidad",
+  "completada": true
+}
+
+### Crear otra tarea
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Estudiar para el parcial"
+}
+
+### Listar todas las tareas
+GET {{url}}/tareas
+
+### Filtrar por tareas completadas
+GET {{url}}/tareas?estado=completadas
+
+### Filtrar por tareas pendientes
+GET {{url}}/tareas?estado=pendientes
+
+### Detalle por id
+GET {{url}}/tareas/1
+
+### Modificar el nombre
+PUT {{url}}/tareas/1
+Content-Type: application/json
+
+{
+  "nombre": "Comprar comida y gaseosa"
+}
+
+### Marcar como completada
+PUT {{url}}/tareas/1
+Content-Type: application/json
+
+{
+  "completada": true
+}
+
+### Borrar por id
+DELETE {{url}}/tareas/2
+
+
+#VALIDACIONES
+
+###  Crear sin nombre
+POST {{url}}/tareas
+Content-Type: application/json
+
+{ "completada": true }
+
+### Crear duplicada
+POST {{url}}/tareas
+Content-Type: application/json
+
+{ "nombre": "Estudiar para el parcial" }
+
+### Crear con completada inválida
+POST {{url}}/tareas
+Content-Type: application/json
+
+{ "nombre": "Llamar al médico", "completada": "si" }
+
+### Query estado inválido
+GET {{url}}/tareas?estado=terminadas
+
+### Id inválido (no entero / <=0)
+GET {{url}}/tareas/abc
+###
+GET {{url}}/tareas/0
+
+### PUT con nombre vacío
+PUT {{url}}/tareas/1
+Content-Type: application/json
+
+{ "nombre": "   " }
+
+### PUT con completada inválida
+PUT {{url}}/tareas/1
+Content-Type: application/json
+
+{ "completada": "tal vez" }
+
+### DELETE inexistente
+DELETE {{url}}/tareas/9999
