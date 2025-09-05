@@ -1,0 +1,193 @@
+# API Alumnos - Pruebas HTTP
+
+### Crear alumno reprobado
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Enzo Fuentes",
+    "nota1": 4.5,
+    "nota2": 5.0,
+    "nota3": 3.5
+}
+
+###
+
+### Crear alumno aprobado
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Ivan Gutierrez",
+    "nota1": 6.5,
+    "nota2": 7.0,
+    "nota3": 6.8
+}
+
+###
+
+### Crear alumno promocionado
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Rojo Facundo",
+    "nota1": 9.0,
+    "nota2": 8.5,
+    "nota3": 8.8
+}
+
+###
+
+### Obtener todos los alumnos
+GET http://localhost:3000/alumnos
+
+###
+
+### Obtener alumno específico (ID: 1)
+GET http://localhost:3000/alumnos/1
+
+###
+
+### Modificar notas de un alumno
+PUT http://localhost:3000/alumnos/1
+Content-Type: application/json
+
+{
+    "nota1": 7.0,
+    "nota2": 7.5,
+    "nota3": 8.0
+}
+
+###
+
+### Modificar nombre de un alumno
+PUT http://localhost:3000/alumnos/2
+Content-Type: application/json
+
+{
+    "nombre": "María Fernanda García"
+}
+
+###
+
+### Modificar alumno completo
+PUT http://localhost:3000/alumnos/3
+Content-Type: application/json
+
+{
+    "nombre": "Carlos Alberto López",
+    "nota1": 10.0,
+    "nota2": 9.5,
+    "nota3": 9.8
+}
+
+###
+
+### Eliminar alumno
+DELETE http://localhost:3000/alumnos/3
+
+###
+
+### Verificar eliminación
+GET http://localhost:3000/alumnos
+
+###
+
+# CASOS DE ERROR
+
+### Error - Nombre duplicado
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "María García",
+    "nota1": 8.0,
+    "nota2": 8.0,
+    "nota3": 8.0
+}
+
+###
+
+### Error - Falta nombre
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nota1": 8.0,
+    "nota2": 8.0,
+    "nota3": 8.0
+}
+
+###
+
+### Error - Faltan notas
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Pedro Martínez",
+    "nota1": 8.0,
+    "nota2": 8.0
+}
+
+###
+
+### Error - Nota fuera de rango
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Ana Silva",
+    "nota1": 12.0,
+    "nota2": 8.0,
+    "nota3": 7.0
+}
+
+###
+
+### Error - Nota negativa
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Luis Torres",
+    "nota1": -2.0,
+    "nota2": 8.0,
+    "nota3": 7.0
+}
+
+###
+
+### Error - Nota no numérica
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Sofia Ruiz",
+    "nota1": "ocho",
+    "nota2": 8.0,
+    "nota3": 7.0
+}
+
+###
+
+### Error - ID inexistente
+GET http://localhost:3000/alumnos/999
+
+###
+
+### Error - ID inválido
+GET http://localhost:3000/alumnos/abc
+
+###
+
+### Error - Modificar con nombre duplicado
+PUT http://localhost:3000/alumnos/2
+Content-Type: application/json
+
+{
+    "nombre": "Carlos López"
+}
+
+###
