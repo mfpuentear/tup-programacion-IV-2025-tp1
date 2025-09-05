@@ -1,0 +1,43 @@
+///Creando un alumno
+POST http://localhost:5000/alumnos 
+Content-Type: application/json
+
+{
+    "nombre" : "Alvaro",
+     "notas" : [6,6,5]
+}
+
+###
+
+POST http://localhost:5000/alumnos 
+Content-Type: application/json
+
+{
+    "nombre" : "Lucas",
+     "notas" : [6,6,10]
+}
+
+###
+
+POST http://localhost:5000/alumnos 
+Content-Type: application/json
+
+{
+    "nombre" : "Julieta",
+     "notas" : [6,6,10]
+}
+
+####
+
+GET http://localhost:5000/alumnos
+
+
+####
+
+PUT http://localhost:5000/alumnos/1 
+Content-Type: application/json
+
+{
+    "NuevoNombre":"Sergio",
+    "notas" : [9,9,9]
+}

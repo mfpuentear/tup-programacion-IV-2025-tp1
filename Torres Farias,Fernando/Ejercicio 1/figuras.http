@@ -1,0 +1,35 @@
+//Probando el post para Calculos//
+
+POST  http://localhost:5000/calculos
+Content-Type:  application/json
+
+{
+    "base" : 5,
+    "altura" : 5
+
+}
+####
+
+POST  http://localhost:5000/calculos
+Content-Type:  application/json
+
+{
+    "base" : -9,
+    "altura" : 0
+}
+###
+
+POST http://localhost:5000/calculos
+Content-Type: application/json
+
+{
+    "base" : 9,
+    "altura" : 5
+}
+
+///Probando Get para Calculos//
+###
+GET http://localhost:5000/calculos
+
+///
+

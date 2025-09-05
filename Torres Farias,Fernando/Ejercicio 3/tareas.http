@@ -1,0 +1,33 @@
+///Agregando tareas///
+
+POST http://localhost:5000/tareas
+Content-Type:  application/json
+
+{
+    "tarea" : "Comprar Manzanas",
+    "estado" : false
+}
+###
+POST http://localhost:5000/tareas
+Content-Type:  application/json
+
+{
+    "tarea" : "Cortar el cesped",
+    "estado" : true
+}
+###
+POST http://localhost:5000/tareas
+Content-Type:  application/json
+
+{
+    "tarea" : "LLevar el auto al service",
+    "estado" : false
+}
+
+
+###
+//Lista con tareas no realiadas ///
+
+GET http://localhost:5000/tareas
+
+
