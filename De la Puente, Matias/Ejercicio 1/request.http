@@ -1,0 +1,50 @@
+### Crear un rectángulo
+POST http://localhost:3000/api/rectangulos
+Content-Type: application/json
+
+{
+  "base": 5,
+  "altura": 3
+}
+
+### Crear un cuadrado
+POST http://localhost:3000/api/rectangulos
+Content-Type: application/json
+
+{
+  "base": 4,
+  "altura": 4
+}
+
+### Crear con datos inválidos
+POST http://localhost:3000/api/rectangulos
+Content-Type: application/json
+
+{
+  "base": -2,
+  "altura": "abc"
+}
+
+### Obtener todos los cálculos
+GET http://localhost:3000/api/rectangulos
+Accept: application/json
+
+### Obtener cálculo específico
+GET http://localhost:3000/api/rectangulos/1
+Accept: application/json
+
+### Obtener cálculo inexistente
+GET http://localhost:3000/api/rectangulos/999
+Accept: application/json
+
+### Filtrar por tipo: cuadrado
+GET http://localhost:3000/api/rectangulos/tipo/cuadrado
+Accept: application/json
+
+### Filtrar por tipo: rectangulo
+GET http://localhost:3000/api/rectangulos/tipo/rectangulo
+Accept: application/json
+
+### Eliminar cálculo
+DELETE http://localhost:3000/api/rectangulos/1
+Accept: application/json
