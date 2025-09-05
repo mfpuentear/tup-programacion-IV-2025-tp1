@@ -1,22 +1,19 @@
+# API de calculo de perimetro y area
 API con Express.js para calcular perímetros y áreas de rectángulos/cuadrados. Los cálculos se guardan en memoria y al consultar se identifica el tipo de figura.
 
-Endpoints
-POST /api/rectangulos - Crear cálculo
+# Endpoints
+- `POST /api/rectangulos - Crear cálculo`
+- `GET /api/rectangulos - Listar todos`
+- `GET /api/rectangulos/:id - Obtener por ID`
+- `DELETE /api/rectangulos/:id - Eliminar`
+- `GET /api/rectangulos/tipo/:tipo - Filtrar (cuadrado/rectangulo)`
 
-GET /api/rectangulos - Listar todos
-
-GET /api/rectangulos/:id - Obtener por ID
-
-DELETE /api/rectangulos/:id - Eliminar
-
-GET /api/rectangulos/tipo/:tipo - Filtrar (cuadrado/rectangulo)
-
-Ejecución
+# Ejecución
 npm install
 npm start
 
 
-Ejemplo de uso
+# Ejemplo de uso
 http
 POST http://localhost:3000/api/rectangulos
 Content-Type: application/json
@@ -25,7 +22,7 @@ Content-Type: application/json
   "altura": 3
 }
 
-Validaciones
+# Validaciones
 Base y altura deben ser números > 0
 
 IDs deben ser números válidos
