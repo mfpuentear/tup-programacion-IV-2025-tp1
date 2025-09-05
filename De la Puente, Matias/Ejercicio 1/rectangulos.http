@@ -1,0 +1,140 @@
+@url=http://localhost:3001
+
+### Health
+GET {{url}}/health
+
+### Crear rectángulo 5x10
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+  "base": 5,
+  "altura": 10
+}
+
+### Crear cuadrado 4x4
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+  "base": 4,
+  "altura": 4
+}
+
+### Listar todos
+GET {{url}}/rectangulos
+
+### Filtrar solo cuadrados
+GET {{url}}/rectangulos?tipo=cuadrado
+
+### Filtrar solo rectángulos
+GET {{url}}/rectangulos?tipo=rectangulo
+
+### Detalle por id
+GET {{url}}/rectangulos/3
+
+### Borrar por id
+DELETE {{url}}/rectangulos/2
+
+
+#PRUEBAS DE VALIDACIÓN
+
+### POST inválido (faltan campos)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{}
+
+### POST inválido (valores no numéricos o <= 0)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+  "base": -5,
+  "altura": "hola"
+}
+
+### POST válido (strings numéricos aceptados)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+  "base": "6",
+  "altura": "6"
+}
+
+### POST inválido (cero o negativos)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{ "base": 0, "altura": 5 }
+
+###
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{ "base": 5, "altura": -1 }
+
+### POST inválido (falta un campo)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{ "base": 5 }
+
+### POST inválido (strings vacíos o espacios)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{ "base": "   ", "altura": "4" }
+
+### POST inválido (null)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{ "base": null, "altura": 4 }
+
+### POST inválido (sin el content type)
+POST {{url}}/rectangulos
+
+{ "base": 4, "altura": 4 }
+
+### POST inválido (JSON mal formado)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{ "base": 4, "altura": 4
+
+### Query inválida (tipo no permitido)
+GET {{url}}/rectangulos?tipo=triangulo
+
+###
+GET {{url}}/rectangulos?tipo=   rectangulo
+
+### Parametro id inválido (no entero)
+GET {{url}}/rectangulos/abc
+
+### Parametro id inválido decimal
+GET {{url}}/rectangulos/1.5
+
+### Parametro id negativo
+GET {{url}}/rectangulos/-3
+
+### Parametro id cero
+GET {{url}}/rectangulos/0
+
+### Parametro id no encontrado (id grande que no existe)
+GET {{url}}/rectangulos/9999
+
+### DELETE con id inválido (no entero)
+DELETE {{url}}/rectangulos/abc
+
+### DELETE id inválido (decimal o negativo)
+DELETE {{url}}/rectangulos/2.2
+###
+DELETE {{url}}/rectangulos/-10
+
+### DELETE de id inexistente
+DELETE {{url}}/rectangulos/9999
+
+### Confirmar que no se creó basura
+GET {{url}}/rectangulos
