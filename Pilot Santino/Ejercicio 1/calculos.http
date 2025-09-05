@@ -1,0 +1,13 @@
+@url =http://localhost:3000
+
+### Ingresar datos 
+POST {{url}}/calculos
+Content-Type: application/json
+
+{
+    "base": 3,
+    "altura": 2
+}
+
+### Mostrar los calculos 
+GET {{url}}/calculos 
