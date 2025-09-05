@@ -1,0 +1,13 @@
+{
+  "name": "ejercicio-3-tareas",
+  "version": "1.0.0",
+  "description": "API para gestión de tareas completadas y pendientes",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
