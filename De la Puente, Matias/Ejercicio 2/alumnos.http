@@ -1,0 +1,130 @@
+@url=http://localhost:3002
+
+### Health
+GET {{url}}/health
+
+### Crear un alumno
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Fiorella",
+  "n1": 8,
+  "n2": 7,
+  "n3": 6
+}
+
+### Crear otro alumno
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Irina",
+  "n1": 6,
+  "n2": 5,
+  "n3": 4
+}
+
+### Crear otro alumno
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Marcos",
+  "n1": 9,
+  "n2": 3,
+  "n3": 8
+}
+
+### Crear otro alumno
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Leandro",
+  "n1": 9,
+  "n2": 10,
+  "n3": 8
+}
+
+### Listado con promedio y condición
+GET {{url}}/alumnos
+
+### Filtrar por condicion
+GET {{url}}/alumnos?estado=promocionado
+
+### Detalle por id
+GET {{url}}/alumnos/1
+
+### Modificar notas
+PUT {{url}}/alumnos/1
+Content-Type: application/json
+
+{
+  "n1": 10,
+  "n2": 9.5
+}
+
+### Modificar nombre 
+PUT {{url}}/alumnos/1
+Content-Type: application/json
+
+{
+  "nombre": "Fiorella Pascuale."
+}
+
+### Borrar alumno 
+DELETE {{url}}/alumnos/2
+
+
+#VALIDACIONES
+
+### Crear sin nombre
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "n1": 6, "n2": 7, "n3": 8
+}
+
+###  Crear con un nombre duplicado
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Leandro",
+  "n1": 6, "n2": 7, "n3": 8
+}
+
+###  Crear con notas fuera del rango
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "n1": -1, "n2": 11, "n3": "hola"
+}
+
+###  Query estado inválido
+GET {{url}}/alumnos?estado=excelente
+
+###  Id inválido
+GET {{url}}/alumnos/abc
+###
+DELETE {{url}}/alumnos/0
+
+###  Modificar a nombre que ya existe
+PUT {{url}}/alumnos/1
+Content-Type: application/json
+
+{
+  "nombre": "Irina"
+}
+
+###  Modificar con notas inválidas
+PUT {{url}}/alumnos/1
+Content-Type: application/json
+
+{
+  "n1": -5, "n2": 20
+}
