@@ -1,0 +1,19 @@
+@url = http://localhost:3000
+
+### Ver todas las tareas 
+GET {{url}}/tareas 
+
+### Agregar tareas
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "tarea": "Lavar el auto",
+    "completada": false
+}
+
+### Filtro de completadas 
+GET {{url}}/tareas?completadas=true 
+
+### Filtro de no completadas 
+GET {{url}}/tareas?completadas=false
