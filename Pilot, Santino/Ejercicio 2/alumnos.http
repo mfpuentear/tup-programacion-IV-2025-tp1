@@ -1,0 +1,25 @@
+@url = http://localhost:3000
+
+### Ver todos los alumnos registrados 
+GET {{url}}/alumnos
+
+### Buscar nota de alumno por nombre 
+GET {{url}}/alumnos/maxi
+
+### Añadir alumno 
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Elio",
+    "notas": ["2", 1, 2]
+}
+
+### Modificar un alumno 
+PUT {{url}}/alumnos/Elio
+Content-Type: application/json 
+
+{
+    "nombre":"Maxi",
+    "notas":[10,4,10]
+}
