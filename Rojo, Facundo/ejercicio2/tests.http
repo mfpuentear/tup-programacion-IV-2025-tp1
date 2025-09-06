@@ -183,11 +183,11 @@ GET http://localhost:3000/alumnos/abc
 ###
 
 ### Error - Modificar con nombre duplicado
-PUT http://localhost:3000/alumnos/2
+PUT http://localhost:3000/alumnos/6
 Content-Type: application/json
 
 {
-    "nombre": "Carlos López"
+    "nombre": "Rojo Facundo"
 }
 
 ###
