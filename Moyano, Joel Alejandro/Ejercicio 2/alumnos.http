@@ -31,14 +31,5 @@ GET http://localhost:3000/alumnos
 ### Consultar alumno por ID
 GET http://localhost:3000/alumnos/3
 
-### Modificar alumno
-PUT http://localhost:3000/alumnos/1
-Content-Type: application/json
-
-{
-    "nombre": "Mario",
-    "notas": [6, 6, 6]
-}
-
 ### Eliminar alumno
 DELETE http://localhost:3000/alumnos/1

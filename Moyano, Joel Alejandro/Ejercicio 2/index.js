@@ -79,7 +79,7 @@ app.get('/alumnos/:id', (req, res) => {
 })
 
 // <----------------> ELIMINAR CÁLCULO <---------------->
-app.delete('/calculos/:id', (req, res) => {
+app.delete('/alumnos/:id', (req, res) => {
     // Obtener el ID del cálculo
     const id = Number(req.params.id)
 
@@ -89,18 +89,18 @@ app.delete('/calculos/:id', (req, res) => {
     }
 
     // Buscar el cálculo por ID
-    const calculoEncontrado = calculos.find(p => p.id === id)
-    if (!calculoEncontrado) {
-        // Si no se encuentra el cálculo, se devuelve un error 404
-        return res.status(404).json({ success: false, message: 'Cálculo no encontrado' })
+    const alumnoEncontrado = alumnos.find(p => p.id === id)
+    if (!alumnoEncontrado) {
+        // Si no se encuentra el alumno, se devuelve un error 404
+        return res.status(404).json({ success: false, message: 'Alumno no encontrado' })
     }
 
-    // Eliminar el cálculo
-    calculos = calculos.filter(c => c.id !== id)
-    console.log('Cálculo eliminado:', calculoEncontrado)
+    // Eliminar el alumno
+    alumnos = alumnos.filter(a => a.id !== id)
+    console.log('Alumno eliminado:', alumnoEncontrado)
 
-    // Responder con el cálculo eliminado
-    res.json({ success: true, data: calculoEncontrado })
+    // Responder con el alumno eliminado
+    res.json({ success: true, data: alumnoEncontrado })
 })
 
 // Iniciar el servidor
