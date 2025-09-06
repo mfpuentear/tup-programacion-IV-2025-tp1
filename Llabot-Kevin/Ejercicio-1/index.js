@@ -9,7 +9,7 @@ app.use(express.json());
 let calculos = [];
 let id = 1;
 
-app.post('/calcular', (req, res) => {
+app.post('/calculos', (req, res) => {
     const  {ancho, alto} = req.body; 
     let numAncho = parseFloat(ancho);
     let numAlto = parseFloat(alto);

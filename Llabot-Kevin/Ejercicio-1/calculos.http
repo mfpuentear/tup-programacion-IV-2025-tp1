@@ -2,7 +2,7 @@
 
 ### calcular
 
-POST {{url}}/calcular
+POST {{url}}/calculos
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### calcular con numeros iguales
-POST {{url}}/calcular
+POST {{url}}/calculos
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### calcular con valores negativos
-POST {{url}}/calcular
+POST {{url}}/calculos
 Content-Type: application/json
 
 {
