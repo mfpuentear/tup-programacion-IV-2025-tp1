@@ -24,6 +24,9 @@ servidor.post("/calculos", (req, res) => {
             mensaje: "Faltan datos: base y altura son obligatorios"
         })
     }
+    if (typeof base !== 'number' || typeof altura !== 'number' || base <= 0 || altura <= 0) {
+        return res.status(400).json({ success: false, message: 'La base y la altura deben ser positivos' })
+    }
 
     const nuevoId = calculos.length ? Math.max(...calculos.map(c => c.id)) + 1 : 1
     const nuevo = {
