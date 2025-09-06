@@ -29,6 +29,11 @@ app.post('/calculos', (req, res) => {
         return res.status(400).json({ success: false, message: 'Todos los campos (base, altura) son obligatorios' })
     }
 
+    // Validar que la base y la altura sean números positivos
+    if (typeof base !== 'number' || typeof altura !== 'number' || base <= 0 || altura <= 0) {
+        return res.status(400).json({ success: false, message: 'La base y la altura deben ser positivos' })
+    }
+
     // Buscar el ID máximo actual y sumar 1
     const maxId = calculos.length > 0 ? Math.max(...calculos.map(c => c.id)) : 0
     const nuevoCalculo = {

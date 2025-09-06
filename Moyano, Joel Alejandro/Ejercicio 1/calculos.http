@@ -3,7 +3,7 @@ POST http://localhost:3000/calculos
 Content-Type: application/json
 
 {
-    "base": 7,
+    "base": -3,
     "altura": 3
 }
 
@@ -11,7 +11,7 @@ Content-Type: application/json
 GET http://localhost:3000/calculos
 
 ### Consultar cálculo por ID
-GET http://localhost:3000/calculos/3
+GET http://localhost:3000/calculos/1
 
 ### Eliminar un cálculo
 DELETE http://localhost:3000/calculos/1

@@ -15,8 +15,10 @@ app.get('/', (req, res) => {
 
 // <----------------> OBTENER TAREAS <---------------->
 app.get('/tareas', (req, res) => {
+    // Obtener el parámetro de consulta 'completada'
     const { completada } = req.query;
 
+    // Filtrar las tareas
     let tareasFiltradas = tareas;
 
     // Validar si existen tareas
@@ -24,6 +26,7 @@ app.get('/tareas', (req, res) => {
         return res.status(404).json({ success: false, message: 'No hay tareas disponibles' });
     }
 
+    // Filtrar por tarea completada o no completada
     if (completada !== undefined) {
         const fueCompletada = completada === 'true';
         tareasFiltradas = tareas.filter(t => t.completada === fueCompletada);
