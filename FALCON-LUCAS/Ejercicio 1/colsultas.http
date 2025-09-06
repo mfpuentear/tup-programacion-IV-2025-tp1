@@ -1,0 +1,17 @@
+### Crear cálculo
+POST http://localhost:3000/calculos
+Content-Type: application/json
+
+{
+    "base": 8,
+    "altura": 4
+}
+
+### Listar todos los cálculos
+GET http://localhost:3000/calculos
+
+### Consultar cálculo por ID
+GET http://localhost:3000/calculos/3
+
+### Eliminar un cálculo por ID
+DELETE http://localhost:3000/calculos/4
