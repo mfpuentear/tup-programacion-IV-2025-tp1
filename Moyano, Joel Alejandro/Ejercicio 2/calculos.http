@@ -1,0 +1,44 @@
+### Crear alumno aprobado
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Juan",
+    "notas": [7, 8, 6]
+}
+
+### Crear alumno reprobado
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Ana",
+    "notas": [1, 8, 8]
+}
+
+### Crear alumno promocionado
+POST http://localhost:3000/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Luis",
+    "notas": [9, 8, 8]
+}
+
+### Listar alumnos
+GET http://localhost:3000/alumnos
+
+### Consultar alumno por ID
+GET http://localhost:3000/alumnos/3
+
+### Modificar alumno
+PUT http://localhost:3000/alumnos/1
+Content-Type: application/json
+
+{
+    "nombre": "Mario",
+    "notas": [6, 6, 6]
+}
+
+### Eliminar alumno
+DELETE http://localhost:3000/alumnos/1
