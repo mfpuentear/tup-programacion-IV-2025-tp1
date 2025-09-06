@@ -1,0 +1,55 @@
+### Crear tarea pendiente
+POST http://localhost:3002/api/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Estudiar Express.js",
+  "completada": false
+}
+
+### Crear tarea completada
+POST http://localhost:3002/api/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Hacer ejercicio",
+  "completada": true
+}
+
+### Intentar crear tarea duplicada (debe fallar)
+POST http://localhost:3002/api/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Estudiar Express.js",
+  "completada": false
+}
+
+### Obtener todas las tareas
+GET http://localhost:3002/api/tareas
+
+### Obtener tarea específica
+GET http://localhost:3002/api/tareas/1
+
+### Filtrar tareas completadas
+GET http://localhost:3002/api/tareas/estado/completada
+
+### Filtrar tareas pendientes
+GET http://localhost:3002/api/tareas/estado/pendiente
+
+### Actualizar tarea
+PUT http://localhost:3002/api/tareas/1
+Content-Type: application/json
+
+{
+  "completada": true
+}
+
+### Marcar como completada
+PATCH http://localhost:3002/api/tareas/1/completar
+
+### Marcar como pendiente
+PATCH http://localhost:3002/api/tareas/1/pendiente
+
+### Eliminar tarea
+DELETE http://localhost:3002/api/tareas/1
