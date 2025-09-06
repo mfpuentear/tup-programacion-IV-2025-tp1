@@ -1,0 +1,65 @@
+@url = http://localhost:3000
+
+### enviar tarea completada
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Comprar leche",
+  "completada": true
+}
+
+
+### enviar tarea no completada
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Hacer ejercicio",
+  "completada": false
+}
+
+
+### enviar tarea repetida
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Comprar leche",
+  "completada": false
+} 
+
+
+### enviar tarea completada
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Estudiar para el examen",
+  "completada": true
+} 
+
+
+### enviar tarea no completada
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Limpiar la casa",
+  "completada": false
+}
+
+
+
+### Mostrar todas las tareas
+GET {{url}}/tareas
+
+
+### Mostrar tareas completadas
+GET {{url}}/tareas?completada=true
+
+
+### Mostrar tareas no completadas
+GET {{url}}/tareas?completada=false
+
+
