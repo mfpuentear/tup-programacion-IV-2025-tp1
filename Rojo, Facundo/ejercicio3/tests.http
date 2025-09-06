@@ -1,0 +1,193 @@
+# API Tareas - Pruebas HTTP
+
+### Crear tarea pendiente (por defecto)
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Estudiar para el examen"
+}
+
+###
+
+### Crear tarea completada
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Hacer ejercicio",
+    "completada": true
+}
+
+###
+
+### Crear más tareas pendientes
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Comprar comida",
+    "completada": false
+}
+
+###
+
+### Crear otra tarea completada
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Leer libro",
+    "completada": true
+}
+
+###
+
+### Obtener todas las tareas
+GET http://localhost:3000/tareas
+
+###
+
+### FILTROS - Obtener solo tareas completadas
+GET http://localhost:3000/tareas?completada=true
+
+###
+
+### FILTROS - Obtener solo tareas pendientes
+GET http://localhost:3000/tareas?completada=false
+
+###
+
+### Obtener tarea específica (ID: 1)
+GET http://localhost:3000/tareas/1
+
+###
+
+### Modificar nombre de tarea
+PUT http://localhost:3000/tareas/1
+Content-Type: application/json
+
+{
+    "nombre": "Estudiar para el parcial de matemáticas"
+}
+
+###
+
+### Marcar tarea como completada
+PUT http://localhost:3000/tareas/1
+Content-Type: application/json
+
+{
+    "completada": true
+}
+
+###
+
+### Modificar tarea completa (nombre y estado)
+PUT http://localhost:3000/tareas/3
+Content-Type: application/json
+
+{
+    "nombre": "Comprar verduras y frutas",
+    "completada": true
+}
+
+###
+
+### Usar endpoint especial para completar tarea
+PATCH http://localhost:3000/tareas/2/completar
+
+###
+
+### Usar endpoint especial para marcar como pendiente
+PATCH http://localhost:3000/tareas/4/pendiente
+
+###
+
+### Verificar cambios - Obtener todas las tareas
+GET http://localhost:3000/tareas
+
+###
+
+### Verificar filtros después de cambios
+GET http://localhost:3000/tareas?completada=true
+
+###
+
+### Eliminar tarea
+DELETE http://localhost:3000/tareas/2
+
+###
+
+### Verificar eliminación
+GET http://localhost:3000/tareas
+
+###
+
+# CASOS DE ERROR
+
+### Error - Nombre duplicado
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Estudiar para el parcial de matemáticas"
+}
+
+###
+
+### Error - Nombre vacío
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "nombre": ""
+}
+
+###
+
+### Error - Sin nombre
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "completada": true
+}
+
+###
+
+### Error - Estado inválido
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Nueva tarea",
+    "completada": "si"
+}
+
+###
+
+### Error - ID inexistente
+GET http://localhost:3000/tareas/999
+
+###
+
+### Error - ID inválido
+GET http://localhost:3000/tareas/abc
+
+###
+
+### Error - Modificar con nombre duplicado
+PUT http://localhost:3000/tareas/3
+Content-Type: application/json
+
+{
+    "nombre": "Estudiar para el parcial de matemáticas"
+}
+
+###
+
+### Error - Completar tarea inexistente
+PATCH http://localhost:3000/tareas/999/completar
+
+###

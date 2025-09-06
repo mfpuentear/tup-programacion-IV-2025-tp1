@@ -1,0 +1,122 @@
+# API Rectángulos - Pruebas HTTP
+
+### Crear un rectángulo
+POST http://localhost:3000/rectangulos
+Content-Type: application/json
+
+{
+    "ancho": 5,
+    "alto": 3
+}
+
+###
+
+### Crear un cuadrado
+POST http://localhost:3000/rectangulos
+Content-Type: application/json
+
+{
+    "ancho": 4,
+    "alto": 4
+}
+
+###
+
+### Crear otro rectángulo
+POST http://localhost:3000/rectangulos
+Content-Type: application/json
+
+{
+    "ancho": 10,
+    "alto": 2
+}
+
+###
+
+### Obtener todos los cálculos
+GET http://localhost:3000/rectangulos
+
+###
+
+### Obtener cálculo específico (ID: 1)
+GET http://localhost:3000/rectangulos/1
+
+###
+
+### Obtener cálculo específico (ID: 2)
+GET http://localhost:3000/rectangulos/2
+
+###
+
+### Eliminar cálculo (ID: 1)
+DELETE http://localhost:3000/rectangulos/1
+
+###
+
+### Verificar que se eliminó - Obtener todos
+GET http://localhost:3000/rectangulos
+
+###
+
+# CASOS DE ERROR
+
+### Error - Faltan datos
+POST http://localhost:3000/rectangulos
+Content-Type: application/json
+
+{
+    "ancho": 5
+}
+
+###
+
+### Error - Dimensiones inválidas (negativas)
+POST http://localhost:3000/rectangulos
+Content-Type: application/json
+
+{
+    "ancho": -5,
+    "alto": 3
+}
+
+###
+
+### Error - Dimensiones inválidas (cero)
+POST http://localhost:3000/rectangulos
+Content-Type: application/json
+
+{
+    "ancho": 0,
+    "alto": 5
+}
+
+###
+
+### Error - Tipo de dato incorrecto
+POST http://localhost:3000/rectangulos
+Content-Type: application/json
+
+{
+    "ancho": "cinco",
+    "alto": 3
+}
+
+###
+
+### Error - ID no existe
+GET http://localhost:3000/rectangulos/999
+
+###
+
+### Error - ID inválido
+GET http://localhost:3000/rectangulos/abc
+
+###
+
+### Error - Eliminar ID que no existe
+DELETE http://localhost:3000/rectangulos/999
+
+###
+
+### Error - Ruta no encontrada
+GET http://localhost:3000/rectangulos/extra/data
