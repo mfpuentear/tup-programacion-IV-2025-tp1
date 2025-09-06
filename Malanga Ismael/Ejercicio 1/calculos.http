@@ -1,0 +1,19 @@
+@url=http://localhost:3000
+
+### Crear un cálculo
+POST {{url}}/calculos
+Content-Type: application/json
+
+{
+    "base": 7,
+    "altura": 3
+}
+
+### Listar cálculos
+GET {{url}}/calculos
+
+### Consultar cálculo por ID
+GET {{url}}/calculos/3
+
+### Eliminar un cálculo
+DELETE {{url}}/calculos/3
