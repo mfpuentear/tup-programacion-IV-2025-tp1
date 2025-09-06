@@ -1,0 +1,41 @@
+### Crear tarea 1
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "descripcion": "Estudiar para el examen",
+    "completada": false
+}
+
+### Crear tarea 2
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "descripcion": "Sacar la basura",
+    "completada": true
+}
+
+### Crear tarea 3
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "descripcion": "Llamar al médico",
+    "completada": false
+}
+
+### Listar tareas completadas
+GET http://localhost:3000/tareas?completada=true
+
+### Listar tareas no completadas
+GET http://localhost:3000/tareas?completada=false
+
+### Listar todas las tareas
+GET http://localhost:3000/tareas
+
+### Consultar tarea por ID
+GET http://localhost:3000/tareas/1
+
+### Eliminar tarea
+DELETE http://localhost:3000/tareas/1
