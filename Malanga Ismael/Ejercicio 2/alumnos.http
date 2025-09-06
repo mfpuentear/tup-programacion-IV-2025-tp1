@@ -1,0 +1,37 @@
+@url=http://localhost:3000
+
+### Crear alumno aprobado
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Ismael",
+    "notas": [10, 10, 9]
+}
+
+### Crear alumno reprobado
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Jorgelina",
+    "notas": [5, 4, 2]
+}
+
+### Crear alumno promocionado
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Genaro",
+    "notas": [9, 10, 8]
+}
+
+### Listar alumnos
+GET {{url}}/alumnos
+
+### Consultar alumno por ID
+GET {{url}}/alumnos/3
+
+### Eliminar alumno
+DELETE {{url}}/alumnos/1
